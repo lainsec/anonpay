@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Anonpay - Login</title>
+</head>
+<body>
+    {% include 'utils/navbar.html' %}
+    <div class="web-content">
+        <div class="features">
+            <div class="description">
+                <p>Welcome to AnonPay, create an account now and
+                    unlock all of our features.
+                </p>
+                <div class="get-started">
+                    <button><a href="/login">LOGIN</a></button>
+                </div>
+            </div>
+            <div class="login-form">
+                <form action="/register" method="post">
+                    <div class="form-content">
+                        <div class="header-text">
+                            <h1>REGISTER</h1>
+                        </div>
+                        <div class="form-fields">
+                            <input autocomplete="off" type="text" placeholder="Login" name="username" maxlength="16" id="">
+                            <input autocomplete="off" type="password" placeholder="Password" name="password" id="password">
+                            <div class="login-btn">
+                                <input type="submit" value="Register">
+                                {% if flashed_messages %}
+                                <pre class="error-handler">{{ get_flashed_messages()[0] }}</pre>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

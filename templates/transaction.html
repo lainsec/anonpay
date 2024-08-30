@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Anonpay - dashboard</title>
+</head>
+<body>
+    {% include 'utils/navbar.html' %}
+    <div class="web-content">
+        <div class="features">
+            <div class="description">
+                <p>Here you can create payment requests and send the url for anyone
+                    you want.
+                </p>
+                <div class="get-started">
+                    <button><a href="/dashboard">TRANSFER</a></button>
+                </div>
+            </div>
+            <div class="transfer-form">
+                <form action="/recive" method="post">
+                    <div class="form-content">
+                        <div class="header-text">
+                            <h1>CREATE</h1>
+                        </div>
+                        <div class="form-fields">
+                            <input autocomplete="off" value="" class="CurrencyInput" placeholder="Payment value" name="value-field" id="currency-field">
+                            <input autocomplete="off" type="text" placeholder="comment" name="comment" id="">
+                            <div class="transfer-btn">
+                                <input type="submit" value="Create transaction">
+                                {% if flashed_messages %}
+                                <pre class="error-handler">{{ get_flashed_messages()[0] }}</pre>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+</html>

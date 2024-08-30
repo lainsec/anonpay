@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Anonpay - dashboard</title>
+</head>
+<body>
+    {% include 'utils/navbar.html' %}
+    <div class="web-content">
+        <div class="features">
+            <div class="description">
+                <p>You're about to pay for something, becareful and check
+                    everything before pay.
+                </p>
+                <div class="get-started">
+                    <button><a href="/dashboard">TRANSFER</a></button>
+                </div>
+            </div>
+            <div class="transfer-form">
+                <form action="/pay/{{ pay_id }}" method="post">
+                    <div class="form-content">
+                        <div class="header-text">
+                            <h1>PAYMENT</h1>
+                        </div>
+                        <div class="form-fields">
+                            <h1 class="pay_value">User: <span class="value">{{ payment.get('payment_user') }}</span></h1>
+                            <h1 class="pay_value">Price: <span class="value">R${{ payment.get('payment_value') }}</span></h1>
+                            <h1 class="pay_value">comment: <span class="value">{{ payment.get('payment_comment') }}</span></h1>
+                            <div class="transfer-btn">
+                                <input type="submit" value="Pay for it">
+                                {% if flashed_messages %}
+                                <pre class="error-handler">{{ get_flashed_messages()[0] }}</pre>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+</html>

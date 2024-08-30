@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>AnonPay - Home</title>
+</head>
+<body>
+    {% include 'utils/navbar.html' %}
+    <div class="web-content">
+        <div class="features">
+            <div class="description">
+                <p>Hello, welcome to <span class="website-span">AnonPay</span>,
+                    AnonPay is a 100% anonymous webpayment gateway with 0 logs,
+                    just create an account and pay or sell.
+                </p>
+                <div class="get-started">
+                    {% if current_user.is_authenticated %}
+                    <button><a href="/logout">LOGOUT</a></button>
+                    {% else %}
+                    <button><a href="/login">GET STARTED</a></button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="features_img">
+                <img draggable="false" src="../static/imgs/website_image.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
