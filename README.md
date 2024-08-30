@@ -12,8 +12,8 @@ _**How to use:**_
 python3 app.py/
 ```
 
-_**Features:**_
-> - 1. _Message handeling_
-> - 2. _Responsive html/css_
-> - 3. _Create custom transactions_
+# FEATURES
+> - _1. Message handeling_
+> - _2. Responsive html/css_
+> - _3. Create custom transactions_
 
